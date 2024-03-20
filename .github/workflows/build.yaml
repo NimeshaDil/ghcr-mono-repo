@@ -2,6 +2,13 @@ name: ci pipeline
 on:
     workflow_dispatch:
       inputs: 
+        service:
+          description: 'Service to build'
+          required: true
+          default: ''
+          type: choice
+          options:
+          - "static-website"
         version:
           description: 'Version of the package'
           required: true
@@ -16,8 +23,10 @@ jobs:
         steps:
         - uses: actions/checkout@v4
         - name: Build image
-          run: docker build . --file Dockerfile --tag ghcr.io/nimeshadil/web:${{ github.event.inputs.version }}
+          run: docker build . --file ${{ github.event.inputs.service }}/Dockerfile --tag ghcr.io/nimeshadil/${{ github.event.inputs.service }}:${{ github.event.inputs.version }}
+
         - name: Log in to registry
           run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ secrets.USER }} --password-stdin
+          
         - name: Push image
-          run: docker push ghcr.io/nimeshadil/web:${{ github.event.inputs.version }}
+          run: docker push ghcr.io/nimeshadil/${{ github.event.inputs.service }}:${{ github.event.inputs.version }}
