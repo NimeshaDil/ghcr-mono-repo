@@ -9,6 +9,7 @@ on:
           type: choice
           options:
           - "static-website"
+          - "ansible"
         version:
           description: 'Version of the package'
           required: true
@@ -27,6 +28,6 @@ jobs:
 
         - name: Log in to registry
           run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u ${{ secrets.USER }} --password-stdin
-          
+
         - name: Push image
           run: docker push ghcr.io/nimeshadil/${{ github.event.inputs.service }}:${{ github.event.inputs.version }}
