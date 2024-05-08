@@ -2,7 +2,7 @@
 
 The purpose of this repository is to give an brief idea for DevOps Engineers to build Docker images for [mono repositories](https://en.wikipedia.org/wiki/Monorepo) and publish images on github container registry.
 
-We use GitHub Actions to build the image/s. The CI pipeline can trigger as a [workflow_dispatch](https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow). Buit images available [here](https://github.com/NimeshaDil?tab=packages).
+We use GitHub Actions to build the image/s. The CI pipeline can trigger as a [workflow_dispatch](https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow). Built images available [here](https://github.com/NimeshaDil?tab=packages).
 
 
 ### Features
