@@ -1,4 +1,4 @@
-## Build Docker images for mono repository
+## Build Docker images for GitHub mono repositories.
 
 The purpose of this repository is to give an brief idea for DevOps Engineers to build Docker images for [mono repositories](https://en.wikipedia.org/wiki/Monorepo) and publish images on github container registry.
 
